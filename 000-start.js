@@ -12,7 +12,7 @@ async function getResponse() {
   try {
     const chatCompletion = await client.chat.completions.create({
       model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: 'Что может ChatGPT?' }],
+      messages: [{ role: 'user', content: 'Роскажи о своем API' }],
     });
     console.log(chatCompletion.choices[0].message.content);
   } catch (error) {
