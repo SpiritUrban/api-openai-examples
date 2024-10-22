@@ -1,108 +1,124 @@
 #collapse {
-    height: 2rem;
-    width: 100%;
-    overflow: hidden;
-    background-color: rgb(68 68 68 / 36%);
-    cursor: pointer;
-  }
-  #collapse.open {
-    height: fit-content;
-  }
-  #collapse .top {
-    margin-bottom: 1rem;
-    background-color: rgb(0 0 0 / 80%);
-    padding: 0.5rem;
-  }
-  #collapse .rest {
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-    display: flex;
-    gap: 1rem;
-  }
-  #collapse .rest span {
-    line-height: 2.2rem;
-      font-weight: 900;
-  }
-  .split a {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    transition: 0.4s;
-  }
-  .split a:hover {
-    z-index: 10;
-  }
-  
-  .split a:nth-child(1) {
-    left: 0;
-    top: -1rem;
-    color: orange;
-  }
-  .split a:nth-child(2) {
-    right: 0;
-    top: 1rem;
-    color: rgb(114, 255, 114);
-  }
-  .split:hover a {
-    display: block;
-  }
-  #top {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  #top a {
-    text-align: center;
-  }
-  body {
-    background: #222;
-    color: #aaa;
-    padding: 1rem;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        from(#222),
-        to(#000)
-      )
-      fixed;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  a,
-  .split {
-    position: relative;
-    color: inherit;
-    text-decoration: none;
-    background: #111;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease; /* Smooth transition */
-    border: black solid 1px;
-    width: 15rem;
-    text-align: center;
-  }
-  a:hover {
-    transform: scale(1.1);
-    border: gray solid 1px;
-    box-shadow: 0px 0px 38px #a1c1ff75;
-  }
-  .short {
-    width: 6rem;
-  }
-  a img {
-    width: 100%;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-  a span {
-    margin-top: 0.5rem;
-    width: fit-content;
-    text-align: center;
-    width: 100%;
-  }
-  
+  height: 2rem;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(68 68 68 / 36%);
+  cursor: pointer;
+}
+
+#collapse.open {
+  height: fit-content;
+}
+
+#collapse .top {
+  margin-bottom: 1rem;
+  background-color: rgb(0 0 0 / 80%);
+  padding: 0.5rem;
+}
+
+#collapse .rest {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+#collapse .rest span {
+  line-height: 2.2rem;
+  font-weight: 900;
+}
+
+.split a {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  transition: 0.4s;
+}
+
+.split a:hover {
+  z-index: 10;
+}
+
+.split a:nth-child(1) {
+  left: 0;
+  top: -1rem;
+  color: orange;
+}
+
+.split a:nth-child(2) {
+  right: 0;
+  top: 1rem;
+  color: rgb(114, 255, 114);
+}
+
+.split:hover a {
+  display: block;
+}
+
+#top {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#top a {
+  text-align: center;
+}
+
+body {
+  background: #222;
+  color: #aaa;
+  padding: 1rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#000)) fixed;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: start;
+}
+
+section {
+  height: fit-content;
+}
+
+a,
+.split {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  background: #111;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  /* Smooth transition */
+  border: black solid 1px;
+  width: 15rem;
+  text-align: center;
+}
+
+a:hover {
+  transform: scale(1.1);
+  border: gray solid 1px;
+  box-shadow: 0px 0px 38px #a1c1ff75;
+}
+
+.short {
+  width: 6rem;
+}
+
+a img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+a span {
+  margin-top: 0.5rem;
+  width: fit-content;
+  text-align: center;
+  width: 100%;
+}
