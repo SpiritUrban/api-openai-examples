@@ -1,5 +1,56 @@
+
+/* https://sci.ponomar.net/fonts.html */
+
+@font-face {
+  font-family: 'PonomarUnicode';
+  src: url('./fonts-churchslavonic/PonomarUnicode.otf') format('opentype');
+}
+
+/* @font-face {
+  font-family: 'FedorovskUnicode';
+  src: url('./fonts-churchslavonic/FedorovskUnicode.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'MenaionUnicode';
+  src: url('./fonts-churchslavonic/MenaionUnicode.otf') format('opentype');
+} */
+
+
+
+body {
+  background: #222;
+  color: #aaa;
+  padding: 1rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#000)) fixed;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: start;
+  
+  font-family: 'PonomarUnicode', serif;
+  font-size: 1.2rem;
+
+  /* font-family: 'FedorovskUnicode', serif;
+  font-family: 'MenaionUnicode', serif; */
+}
+
+
+h1 {
+}
+p {
+
+}
+
+
+section {
+  height: fit-content;
+}
+
 #collapse {
-  height: 2rem;
+  height: 3rem;
   width: 100%;
   overflow: hidden;
   background-color: rgb(68 68 68 / 36%);
@@ -66,22 +117,7 @@
   text-align: center;
 }
 
-body {
-  background: #222;
-  color: #aaa;
-  padding: 1rem;
-  min-height: 100vh;
-  box-sizing: border-box;
-  background: -webkit-gradient(linear, left top, left bottom, from(#222), to(#000)) fixed;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: start;
-}
 
-section {
-  height: fit-content;
-}
 
 a,
 .split {
