@@ -1,3 +1,25 @@
+/*
+    temperature       — сие поле задает, сколь разнообразен будет ответ. Если значение близко к нулю (например, 0.2), то ответы будут более предсказуемыми, а если ближе к единице (например, 0.9), то ответы будут более творческими и разнообразными.
+    max_tokens        — ограничивает количество слов, что API может тебе вернуть. Можно задать, дабы ответ был не слишком длинным (например, 150 токенов).
+    top_p             — задает порог выбора слов. Ежели значение близко к единице, ответы будут полнее, а с меньшими значениями — более скромными.
+    frequency_penalty — если сие поле установить, то можно управлять повторением фраз. Если значение высоко (например, 0.5), повторяться ответ не будет.
+    presence_penalty  — сие поле говорит, чтобы модель склонялась к использованию новых слов в ответах. Чем выше значение (например, 0.6), тем более разнообразен будет ответ.
+*/
+
+/*
+    role — определяет, кто говорит. У API есть несколько ролей:
+
+    system: это роль системы, где ты можешь задавать общие инструкции для модели (например, "Ты сейчас играешь роль учителя истории").
+    user: роль пользователя — это когда ты сам говоришь модели, что делать или спрашиваешь что-то.
+    assistant: это роль самой модели, то есть, ответы, которые модель будет генерировать.
+
+    content — сие сам текст сообщения, то, что ты хочешь сказать модели или что модель тебе отвечает. Здесь происходит сам диалог.
+*/
+
+/*  
+    Уще к КОНТЕНТ добавим ролей разных пользователей.
+*/
+
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
 
@@ -5,19 +27,38 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Используем ключ API из .env
+    apiKey: process.env.OPENAI_API_KEY, // Используем ключ API из .env
 });
 
-async function getResponse() {
-  try {
-    const chatCompletion = await client.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: 'Роскажи о своем API' }],
-    });
-    console.log(chatCompletion.choices[0].message.content);
-  } catch (error) {
-    console.error('Ошибка:', error.response ? error.response.data : error.message);
-  }
+const messages = [
+    { role: "system", content: "Ты помощник, который говорит на старославянском." },
+    { role: "user", content: "Расскажи мне о медведе." },
+    { role: "assistant", content: "Медведи эти животные шловливые..." }
+]
+
+
+async function getResponse(messages) {
+    try {
+        const chatCompletion = await client.chat.completions.create({
+            model: 'gpt-3.5-turbo',
+            messages,
+            temperature: 0.9,
+            max_tokens: 150,
+        });
+        console.log(chatCompletion.choices[0].message.content);
+    } catch (error) {
+        console.error('Ошибка:', error.response ? error.response.data : error.message);
+    }
 }
 
-getResponse();
+getResponse(messages);
+
+
+
+// model="gpt-3.5-turbo",
+// messages=messages,
+// temperature=0.7,
+// max_tokens=150,
+// top_p=1,
+// frequency_penalty=0,
+// presence_penalty=0.6
