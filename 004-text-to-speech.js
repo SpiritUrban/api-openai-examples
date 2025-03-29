@@ -12,7 +12,7 @@ const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const text = data[0]; // Берем текст из массива book.js
+const text = data[1]; // Берем текст из массива book.js
 
 // Сообщения для диалога
 const messages = [
