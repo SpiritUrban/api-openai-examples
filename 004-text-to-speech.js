@@ -12,7 +12,16 @@ const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-const text = data[1]; // Берем текст из массива book.js
+const maxLength = 4096; // Максимальная длина текста для GPT-4
+const part = 3;
+
+const text = data[part-1]; // Берем текст из массива book.js
+
+if (text.length > maxLength) {
+    console.log('Длина текста:', text.length);
+    console.error('Слишком длинное сообщение. Максимальная длина:', maxLength);
+    process.exit(1);
+}
 
 // Сообщения для диалога
 const messages = [
@@ -42,7 +51,7 @@ async function generateAudio(messages) {
         });
 
         // Скачиваем и сохраняем аудиофайл
-        const audioPath = './response_audio.mp3';
+        const audioPath = `./book-${part}.mp3`;
         const buffer = Buffer.from(await audioResponse.arrayBuffer());
         fs.writeFileSync(audioPath, buffer);
         console.log(`Аудиофайл сохранён как ${audioPath}`);
